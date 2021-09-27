@@ -1,30 +1,64 @@
 import "./styles.css";
 import React, { useState } from "react";
 
-var gadgets = {
-  smartPhones: {
-    model: ["Iphone(5/5)", "OnePlus(4.5/5)", "Mi(4/5)", "vivo(3/5)"]
+var smartphones = [
+  {
+    name: "Apple",
+    rating: "Rating: 5/5",
+    descr: "Best To Buy"
   },
-  earphones: {
-    model: ["Apple(5/5)", "OnePlus(4/5)", "Mi(4.5/5)", "Boat(3/5)"]
+  {
+    name: "Mi",
+    rating: "Rating: 3/5",
+    descr: "Value For Money"
   },
-  AirConditioner: {
-    model: ["Samsung(5/5)", "Hitachi(4.5/5)", "LG(3.5/5)", "Blue-star(2/5)"]
-  },
-  fridges: {
-    model: ["Whirlpool(5/5)", "L.G(4/5)", "Samsung(3/5)", "Godrej(2/5)"]
-  },
-  washingMachine: {
-    model: ["L.G(5/5)", "Whirlpool(4/5)", "samsung(3.5/5)", "Bosch(3/5)"]
+  {
+    name: "One Plus",
+    rating: "Rating: 4/5",
+    descr: "Camera Quality And Performance Best"
   }
-};
+];
+var earphones = [
+  {
+    name: "Noise",
+    rating: "Rating: 4/5",
+    descr: "Best To Buy"
+  },
+  {
+    name: "JBL",
+    rating: "Rating: 5/5",
+    descr: "Bass Quality at it's Best"
+  },
+  {
+    name: "Boat",
+    rating: "Rating: 3.5/5",
+    descr: "value for money"
+  }
+];
+var airconditionar = [
+  {
+    name: "Samsung",
+    rating: "Rating: 4/5",
+    descr: "Best To Buy"
+  },
+  {
+    name: "L.G",
+    rating: "Rating: 3/5",
+    descr: "Quality at it's Best"
+  },
+  {
+    name: "Blue-star",
+    rating: "Rating: 3.5/5",
+    descr: "value for money"
+  }
+];
 
 export default function App() {
   var [activeIndex, setActiveIndex] = useState(0);
   return (
     <div className="App">
       <section>
-        <h1 style={{ fontSize: "30px" }}>🤖 Electronic Products</h1>
+        <h1 style={{ fontSize: "30px" }}>🤖Electronic Products</h1>
         <p style={{ fontSize: "small" }}>
           Checkout the best product under category listed
         </p>
@@ -33,29 +67,37 @@ export default function App() {
       <button onClick={() => setActiveIndex(0)}>Smart Phones</button>
       <button onClick={() => setActiveIndex(1)}>Earphones</button>
       <button onClick={() => setActiveIndex(2)}>Air Conditioner</button>
-      <button onClick={() => setActiveIndex(3)}>Fridge</button>
-      <button onClick={() => setActiveIndex(4)}>Washing Machine</button>
       <div className="listed">
         <ul>
           <li>
             {activeIndex === 0 &&
-              gadgets.smartPhones.model.map((item) => <li>{item}</li>)}
+              smartphones.map((item) => (
+                <li>
+                  <p id="brand">{item.name}</p>
+                  <p>{item.rating}</p>
+                  <p>{item.descr}</p>
+                </li>
+              ))}
           </li>
           <li>
             {activeIndex === 1 &&
-              gadgets.earphones.model.map((item) => <li>{item}</li>)}
+              earphones.map((item) => (
+                <li>
+                  <p id="brand">{item.name}</p>
+                  <p>{item.rating}</p>
+                  <p>{item.descr}</p>
+                </li>
+              ))}
           </li>
           <li>
             {activeIndex === 2 &&
-              gadgets.AirConditioner.model.map((item) => <li>{item}</li>)}
-          </li>
-          <li>
-            {activeIndex === 3 &&
-              gadgets.fridges.model.map((item) => <li>{item}</li>)}
-          </li>
-          <li>
-            {activeIndex === 4 &&
-              gadgets.washingMachine.model.map((item) => <li>{item}</li>)}
+              airconditionar.map((item) => (
+                <li>
+                  <p id="brand">{item.name}</p>
+                  <p>{item.rating}</p>
+                  <p>{item.descr}</p>
+                </li>
+              ))}
           </li>
         </ul>
       </div>
