@@ -19,6 +19,10 @@ button:hover {
 ul {
   list-style: none;
 }
+#brand {
+  color: #f59e0b;
+  font-size: 1.5rem;
+}
 .listed {
   background-color: #d1d5db;
   border-radius: 1rem;
